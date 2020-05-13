@@ -13,6 +13,7 @@ def line():
         coin1 = 'BTC'
 
 
+
     import pgdb #  PostgreSQL database adapter for Python
     conn = pgdb.connect(host="34.105.201.48",database="crypto_db", user="postgres", password="12345")  # create connection instance to postgre DB
     cursor = conn.cursor()
@@ -63,5 +64,6 @@ def line():
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+    #app.run(debug=True,host='0.0.0.0',port=8080)
 
 #app.run("localhost", "9999", debug=True)
