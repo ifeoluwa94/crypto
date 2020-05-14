@@ -112,7 +112,7 @@ var myChart = new Chart(ctx, {
           {% endfor %}
         ],
         datasets: [{
-            label: 'Closing Price',
+            label: "{{lab}}",
             data: [{% for item in values %}
               {{ item }},
             {% endfor %}],
@@ -148,6 +148,7 @@ var myChart = new Chart(ctx, {
           <p>
              <label>Select list</label>
              <select id="myList" name ="coin" >
+              <option selected >Choose below</option>
                <option value = "BTC" >BTC</option>
                <option value = "ETH">ETH</option>
                <option value = "XRP">XRP</option>
