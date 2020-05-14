@@ -58,8 +58,8 @@ def line():
     return render_template('index.html', title='Historical crypto currency chart', max=maxi, step=steps,labels=line_labels, values=line_values, lab = coin1+' closing price trend')
 
 
-#if __name__ == "__main__":
-    #app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+if __name__ == "__main__":
+    app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
     #app.run(debug=True,host='0.0.0.0',port=8080)
 
-app.run("localhost", "9999", debug=True)
+#app.run("localhost", "9999", debug=True)

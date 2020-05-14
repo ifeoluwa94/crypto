@@ -1,0 +1,6 @@
+
+- list projects accessible by the active account
+		gcloud projects list 
+		
+- build and submit container to gcr
+		gcloud builds submit --tag gcr.io/PROJECT-ID/helloworld
