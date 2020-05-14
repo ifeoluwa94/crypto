@@ -53,13 +53,17 @@ def line():
 
     if coin1 == 'BTC':
         maxi = 12000
+        steps = 10
     elif coin1 == 'ETH':
         maxi = 300
+        steps = 10
     elif coin1 == 'XRP':
-        maxi = 0.1
+        maxi = 5
+        steps = 0.1
     else:
         maxi = 100
-    return render_template('index.html', title='Historical crypto currency chart', max=maxi, labels=line_labels, values=line_values)
+        steps = 10
+    return render_template('index.html', title='Historical crypto currency chart', max=maxi, step=steps,labels=line_labels, values=line_values)
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>{{ title }}</title>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -20,11 +21,11 @@
   <!-- End Google Tag Manager (noscript) -->
   <center>
     <h1>{{ title }}</h1>
-
+<!--
     <canvas id="chart" width="1600" height="400"></canvas>
     <script>
 
-      // bar chart data
+      // line chart data
       var barData = {
         labels : [
           {% for item in labels %}
@@ -48,36 +49,96 @@
   ]
       }
 
+
+
       Chart.defaults.global.animationSteps = 50;
       Chart.defaults.global.tooltipYPadding = 16;
       Chart.defaults.global.tooltipCornerRadius = 0;
       Chart.defaults.global.tooltipTitleFontStyle = "normal";
-      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+      Chart.defaults.global.tooltipFillColor = "rgba(1,0,0,0.8)";
       Chart.defaults.global.animationEasing = "easeOutBounce";
       Chart.defaults.global.responsive = false;
       Chart.defaults.global.scaleLineColor = "black";
-      Chart.defaults.global.scaleFontSize = 16;
+      Chart.defaults.global.scaleFontSize = 10;
+      Chart.defaults.global.title="Cryptocurrecy price Trend";
 
-      // get bar chart canvas
+      // get line chart canvas
       var mychart = document.getElementById("chart").getContext("2d");
 
-      steps = 10
+      //steps = 10
+      steps ={{ step }}
       max = {{ max }}
-      // draw bar chart
+      // draw line chart
       var LineChartDemo = new Chart(mychart).Line(barData, {
         scaleOverride: true,
         scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
+        scaleStepWidth:Math.ceil(max / steps),
         scaleStartValue: 0,
         scaleShowVerticalLines: true,
         scaleShowGridLines : true,
         barShowStroke : true,
         scaleShowLabels: true,
-        bezierCurve: false,
+        bezierCurve: false
+    
       });
 
-    </script>
+    </script> -->
+<p>
+  <canvas id="myChart" width="1800" height="400"></canvas>
+  <script>
+    Chart.defaults.global.animationSteps = 50;
+    Chart.defaults.global.tooltipYPadding = 16;
+    Chart.defaults.global.tooltipCornerRadius = 0;
+    Chart.defaults.global.tooltipTitleFontStyle = "normal";
+    Chart.defaults.global.tooltipFillColor = "rgba(1,0,0,0.8)";
+    Chart.defaults.global.animationEasing = "easeOutBounce";
+    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.scaleLineColor = "black";
+    Chart.defaults.global.defaultFontSize = 10;
 
+    Chart.defaults.global.elements.point.radius =2.5
+    Chart.defaults.global.elements.point.backgroundColor='rgba(255, 99, 132, 0.5)'
+    Chart.defaults.global.elements.point.borderColor='rgba(255, 100, 40, 255)'
+    Chart.defaults.global.elements.point.hitRadius=1
+    Chart.defaults.global.elements.point.hoverRadius=4
+    Chart.defaults.line
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+          {% for item in labels %}
+            "{{ item }}",
+          {% endfor %}
+        ],
+        datasets: [{
+            label: 'Closing Price',
+            data: [{% for item in values %}
+              {{ item }},
+            {% endfor %}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 100, 40, 255)'
+            ],
+            borderWidth: 2,
+            
+        }]
+    },
+    options: {
+
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+</p>
     
   </center>
 <h1>Filter By Cryptocurrecy</h1>
