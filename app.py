@@ -17,7 +17,7 @@ def line():
     import pgdb #  PostgreSQL database adapter for Python
     conn = pgdb.connect(host="34.105.201.48",database="crypto_db", user="postgres", password="12345")  # create connection instance to postgre DB
     cursor = conn.cursor()
-    q1= 'select currency_code,left(time_period_end,10) as Date,price_close from history where currency_code='+"'"+coin1+"'"+' order by currency_code asc, left(time_period_end,10)  asc limit 100'
+    q1= 'select currency_code, Date,price_close from (select currency_code,left(time_period_end,10) as Date,price_close from history order by currency_code asc, left(time_period_end,10)  desc limit 100) t order by currency_code asc, Date asc'
     cursor.execute(q1)
 
     options = list()
