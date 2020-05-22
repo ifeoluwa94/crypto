@@ -8,6 +8,14 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-WHM4FLT');</script>
 <!-- End Google Tag Manager -->
+
+<!-- Popcorn Metrics -->
+<script type="text/javascript">
+ function _pcm(u){setTimeout(function(){
+  var d=document, p="//desv383oqqc0" + ".cloudfront." + "net/", s=d.createElement("script");s.type="text/javascript";s.async=true;s.src=p+u+".js"; var e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(s,e);},1);}_pcm("5ec78d73b58cf5000460212e");
+</script>
+<!--- End Popcorn Metrics -->
+
   <meta charset="utf-8" />
   <title>{{ title }}</title>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
@@ -141,7 +149,7 @@ var myChart = new Chart(ctx, {
 </script>
 </p>
     
-<h2>Monthly Average Closing Price History</h1>
+<h2>Monthly Average Closing Price History</h2>
 
 <p>
   <canvas id="myChart1" width="1800" height="400"></canvas>
@@ -200,7 +208,7 @@ var myChart1 = new Chart(ctx, {
 </script>
 </p>
 
-
+<h5>{{ title2 }}</h5>
   </center>
 <h1>Filter By Cryptocurrecy</h1>
     <form id="send-request-form" action = "/" method="POST" >

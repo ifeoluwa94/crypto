@@ -81,7 +81,7 @@ def line():
     else:
         maxi = 100
         steps = 10
-    return render_template('index.html', title='Historical crypto currency chart', max=maxi, step=steps,labels=line_labels,labels2=line_labels2, values=line_values, values2= line_values2,lab = coin1+' closing price trend')
+    return render_template('index.html', title='Historical crypto currency chart', title2=coin1, max=maxi, step=steps,labels=line_labels,labels2=line_labels2, values=line_values, values2= line_values2,lab = coin1+' closing price trend')
 
 
 if __name__ == "__main__":
